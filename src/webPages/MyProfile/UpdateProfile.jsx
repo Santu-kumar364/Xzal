@@ -59,17 +59,38 @@ export default function UpdateProfile({ open, handleClose }) {
     setIsLoading(true);
     try {
       const result = await UploadToCloudinary(file, "image");
-      if (!result.url) throw new Error("Failed to get image URL");
+      console.log("Full Cloudinary response:", result); // Debug log
+
+      // Handle different response structures
+      let imageUrl;
+      if (typeof result === "string") {
+        // If response is a direct URL string
+        imageUrl = result;
+      } else if (result?.url) {
+        // If response has url property
+        imageUrl = result.url;
+      } else if (result?.secure_url) {
+        // If response has secure_url property
+        imageUrl = result.secure_url;
+      } else if (result?.data?.url) {
+        // If response is nested in data property
+        imageUrl = result.data.url;
+      } else {
+        throw new Error("Invalid response format from Cloudinary");
+      }
+
+      console.log("Extracted image URL:", imageUrl); // Debug log
 
       if (type === "profile") {
-        dispatch(updateProfilePicture(result.url));
-        setSelectedProfileImage(result.url);
+        dispatch(updateProfilePicture(imageUrl));
+        setSelectedProfileImage(imageUrl);
       } else {
-        dispatch(updateBackgroundPicture(result.url));
-        setSelectedBackgroundImage(result.url);
+        dispatch(updateBackgroundPicture(imageUrl));
+        setSelectedBackgroundImage(imageUrl);
       }
     } catch (error) {
       console.error(`${type} upload failed:`, error);
+      alert(`${type} upload failed: ${error.message}`);
     } finally {
       setIsLoading(false);
     }

@@ -8,6 +8,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import HomeRight from "../../components/HomeRight/HomeRight";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Message/Message";
+import { Games } from "@mui/icons-material";
 
 const HomePages = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const HomePages = () => {
             <Route path="/create-reels" element={<CreateReelsForm />} />
             <Route path="/profile/:id" element={<MyProfile />} />
             <Route path="/message" element={<Message/>} />
+            <Route path="/games" element={<Games/>} />
           </Routes>
         </Grid>
 

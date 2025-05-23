@@ -2,10 +2,10 @@ import HomeIcon from '@mui/icons-material/Home';
 import ExploreIcon from '@mui/icons-material/Explore';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import ListAltIcon from '@mui/icons-material/ListAlt';
 import GroupIcon from '@mui/icons-material/Group';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MessageIcon from '@mui/icons-material/Message';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
  
 
 export const navigationMenu = [
@@ -35,9 +35,9 @@ export const navigationMenu = [
     path: "/message",
   },
   {
-    title: "Lists",
-    icon: <ListAltIcon/>,
-    path: "/",
+    title: "Games",
+    icon: <SportsEsportsIcon/>,
+    path: "/games",
   },
   {
     title: "Communities",

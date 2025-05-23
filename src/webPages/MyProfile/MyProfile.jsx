@@ -13,16 +13,11 @@ const tabs = [
   { value: "repost", name: "Repost" },
 ];
 
-const posts = [];
-const reels = [];
-const saved = [];
-const reposts = [];
-
 const MyProfile = () => {
-  const { auth } = useSelector((store) => store);
+  const { auth, post, reel } = useSelector((store) => store);
   const { id } = useParams();
-  const [value, setValue] = React.useState("post");
-  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = useState("post");
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -31,26 +26,44 @@ const MyProfile = () => {
     setValue(newValue);
   };
 
+  // Filter content by the current user
+  const userPosts = post.posts.filter((item) => item.user.id === auth.user?.id);
+  const userReels = reel.reels.filter((item) => item.user.id === auth.user?.id);
+  const userSaved = [];  
+  const userReposts = [];  
 
+  // Counters for profile stats
+  const postCount = userPosts.length;
+  const reelCount = userReels.length;
+  const followerCount = auth.user?.followers?.length || 0;
+  const followingCount = auth.user?.following?.length || 0;
 
   return (
     <Card className="my-10 w-[70%]">
       <div className="rounded-md">
+        {/* Profile Header */}
         <div className="h-[15rem]">
           <img
-            className="h-full w-full rounded-md"
-            src={auth.user?.backgroundPicture}
-            alt=""
+            className="h-full w-full rounded-md object-cover"
+            src={auth.user?.backgroundPicture || "/default-banner.jpg"}
+            alt="Profile banner"
           />
         </div>
+        
+        {/* Profile Info */}
         <div className="px-5 flex justify-between items-start mt-5 h-[5rem]">
           <Avatar
-            className="transform -translate-y-24"
+            className="transform -translate-y-24 border-4 border-white"
             sx={{ width: "10rem", height: "10rem" }}
-            src={auth.user?.profilePicture }
+            src={auth.user?.profilePicture || "/default-avatar.jpg"}
+            alt={`${auth.user?.firstName} ${auth.user?.lastName}`}
           />
-          {true ? (
-            <Button onClick={handleOpen} sx={{ borderRadius: "20px" }} variant="contained">
+          {true ? ( // Replace with actual condition if needed
+            <Button
+              onClick={handleOpen}
+              sx={{ borderRadius: "20px" }}
+              variant="contained"
+            >
               Edit Profile
             </Button>
           ) : (
@@ -59,92 +72,138 @@ const MyProfile = () => {
             </Button>
           )}
         </div>
+        
+        {/* Profile Details */}
         <div className="p-5">
           <div>
             <h1 className="py-1 font-bold text-xl">
               {auth.user?.firstName + " " + auth.user?.lastName}
             </h1>
-            <p>
-              {" "}
-              @
-              {auth.user?.firstName.toLowerCase() +
+            <p className="text-gray-400">
+              @{auth.user?.firstName?.toLowerCase() +
                 "_" +
-                auth.user?.lastName.toLowerCase()}
+                auth.user?.lastName?.toLowerCase()}
             </p>
           </div>
+          
           <div className="flex gap-5 items-center py-3">
-            <span>35 post</span>
-            <span>45 followers</span>
-            <span>5 followings</span>
+            <span><strong>{postCount + reelCount}</strong> posts</span>
+            <span><strong>{followerCount}</strong> followers</span>
+            <span><strong>{followingCount}</strong> following</span>
           </div>
 
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet, cnihil facere praesentium, aliquid{" "}
-            </p>
-          </div>
+          {auth.user?.bio && (
+            <div className="py-2">
+              <p className="text-gray-800">{auth.user.bio}</p>
+            </div>
+          )}
         </div>
+        
+        {/* Content Tabs */}
         <section>
           <Box sx={{ width: "100%", borderBottom: 1, borderColor: "divider" }}>
             <Tabs
               value={value}
               onChange={handleChange}
-              aria-label="wrapped label tabs example"
+              aria-label="profile content tabs"
+              variant="scrollable"
+              scrollButtons="auto"
             >
               {tabs.map((item) => (
                 <Tab
                   key={item.value}
                   value={item.value}
-                  label={item.name}
-                  wrapped
+                  label={`${item.name} ${
+                    item.value === "post" ? postCount :
+                    item.value === "reels" ? reelCount :
+                    item.value === "saved" ? userSaved.length :
+                    userReposts.length
+                  }`}
                 />
               ))}
             </Tabs>
           </Box>
+          
+          {/* Content Display */}
           <div className="flex justify-center">
             {value === "post" && (
               <div className="space-y-5 w-[70%] my-10">
-                {posts.map((item) => (
-                  <div className="border border-slate-100 rounded-md">
-                    <PostCard item={item}/>
+                {userPosts.length > 0 ? (
+                  userPosts.map((item) => (
+                    <div className="border border-slate-100 rounded-md shadow-sm" key={item.id}>
+                      <PostCard item={item} />
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-center py-10 text-gray-500">
+                    <p>No posts yet</p>
+                    <Button variant="outlined" sx={{ mt: 2 }}>
+                      Create your first post
+                    </Button>
                   </div>
-                ))}
+                )}
               </div>
             )}
 
             {value === "reels" && (
-              <div className="flex justify-center flex-wrap gap-2 my-10">
-                {reels.map((item) => (
-                  <UserReelCard />
-                ))}
+              <div className="w-full px-4 my-10">
+                {userReels.length > 0 ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {userReels.map((reel) => (
+                      <div key={reel.id} className="aspect-[9/16]">
+                        <UserReelCard reel={reel} />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-10 text-gray-500">
+                    <p>No reels yet</p>
+                    <Button variant="outlined" sx={{ mt: 2 }}>
+                      Create your first reel
+                    </Button>
+                  </div>
+                )}
               </div>
             )}
 
             {value === "saved" && (
               <div className="space-y-5 w-[70%] my-10">
-                {saved.map((item) => (
-                  <div className="border border-slate-100">
-                    <PostCard />
+                {userSaved.length > 0 ? (
+                  userSaved.map((item) => (
+                    <div className="border border-slate-100 rounded-md shadow-sm" key={item.id}>
+                      <PostCard item={item} />
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-center py-10 text-gray-500">
+                    <p>No saved posts yet</p>
                   </div>
-                ))}
+                )}
               </div>
             )}
 
             {value === "repost" && (
               <div className="space-y-5 w-[70%] my-10">
-                {reposts.map((item) => (
-                  <div className="border border-slate-100">
-                    <PostCard />
+                {userReposts.length > 0 ? (
+                  userReposts.map((item) => (
+                    <div className="border border-slate-100 rounded-md shadow-sm" key={item.id}>
+                      <PostCard item={item} />
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-center py-10 text-gray-500">
+                    <p>No reposts yet</p>
                   </div>
-                ))}
+                )}
               </div>
             )}
           </div>
         </section>
       </div>
 
+      {/* Edit Profile Modal */}
       <section>
-        <UpdateProfile open = {open} handleClose={handleClose} />
+        <UpdateProfile open={open} handleClose={handleClose} />
       </section>
     </Card>
   );
