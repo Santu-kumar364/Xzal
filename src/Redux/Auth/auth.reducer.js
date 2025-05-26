@@ -14,6 +14,8 @@ import {
   USER_UPDATE_BACKGROUND_PICTURE_SUCCESS,
   USER_UPDATE_PROFILE_PICTURE_FAIL,
   USER_UPDATE_BACKGROUND_PICTURE_FAIL,
+  SEARCH_USER_SUCCUSS,
+  SEARCH_USER_FAILURE,
 } from "./auth.action.Type";
 
 const initialState = {
@@ -21,6 +23,7 @@ const initialState = {
   error: null,
   loading: false,
   user: null,
+  searchUser: [],
   isAuthenticated: false, // Added authentication flag
   lastAction: null, // For debugging
 };
@@ -84,6 +87,21 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+
+    case SEARCH_USER_SUCCUSS:
+      return {
+        ...state,
+        searchUser: action.payload,
+        loading: false,
+        error: null,
+      };
+
+    case SEARCH_USER_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.response?.data?.message || action.payload.message,
       };
 
     default:

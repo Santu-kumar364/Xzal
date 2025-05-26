@@ -1,0 +1,36 @@
+.hideScrollBar::-webkit-scrollbar{
+  width: 0;
+  display: none;
+  height: 0;
+}
+.hideScrollBar::-webkit-scrollbar-track{
+  display: none;
+}
+
+
+
+ 
+ 
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto;
+  height: calc(100vh - 200px);
+}
+
+/* Smooth scrolling */
+.messages-container {
+  scroll-behavior: smooth;
+}
+
+/* Message bubble transitions */
+.message-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.message-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 300ms ease-in;
+}

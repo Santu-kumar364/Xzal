@@ -6,6 +6,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MessageIcon from '@mui/icons-material/Message';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
  
 
 export const navigationMenu = [
@@ -36,7 +37,7 @@ export const navigationMenu = [
   },
   {
     title: "Games",
-    icon: <SportsEsportsIcon/>,
+    icon: <VideogameAssetIcon/>,
     path: "/games",
   },
   {

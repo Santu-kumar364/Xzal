@@ -7,11 +7,11 @@ const StoryCircle = () => {
       <div className="flex flex-col items-center mr-4 cursor-pointer">
         <Avatar
           sx={{width: "5rem", height: "5rem"}}
-          src="https://i.pinimg.com/236x/43/78/4b/43784b022ff90677e79e8277e3edea84.jpg"
+          src="https://media.licdn.com/dms/image/v2/D4D03AQFgdh63qTRMVw/profile-displayphoto-shrink_400_400/B4DZO7K3HnGoAg-/0/1734012007450?e=1753315200&v=beta&t=VNaM9foFqcckw6tvoez0ZV270hqbDjlchLEXRyHP_Yc"
         >
          
         </Avatar>
-        <p className="text-sm">Say hii</p>
+        <p className="text-sm">Temp img</p>
       </div>
     </div>
   );

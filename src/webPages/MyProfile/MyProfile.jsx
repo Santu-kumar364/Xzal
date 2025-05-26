@@ -1,10 +1,10 @@
 import { Avatar, Box, Button, Card, Tab, Tabs } from "@mui/material";
-import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import PostCard from "../../components/Post/PostCard";
-import UserReelCard from "../../components/Reels/UserReelCard";
 import { useSelector } from "react-redux";
 import UpdateProfile from "./UpdateProfile";
+import ProfileReelCard from "../../components/Reels/ProfileReelCard";
+ 
 
 const tabs = [
   { value: "post", name: "Post" },
@@ -15,20 +15,20 @@ const tabs = [
 
 const MyProfile = () => {
   const { auth, post, reel } = useSelector((store) => store);
-  const { id } = useParams();
   const [value, setValue] = useState("post");
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+ const handleChange = (event, newValue) => {
+  setValue(newValue);
+};
 
   // Filter content by the current user
   const userPosts = post.posts.filter((item) => item.user.id === auth.user?.id);
-  const userReels = reel.reels.filter((item) => item.user.id === auth.user?.id);
+  const userReels = reel.reels.filter((item) => item.user?.id === auth.user?.id);
+
   const userSaved = [];  
   const userReposts = [];  
 
@@ -151,7 +151,7 @@ const MyProfile = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {userReels.map((reel) => (
                       <div key={reel.id} className="aspect-[9/16]">
-                        <UserReelCard reel={reel} />
+                        <ProfileReelCard reel={reel} />
                       </div>
                     ))}
                   </div>

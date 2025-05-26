@@ -9,7 +9,6 @@ import {
   MenuItem,
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import myDp from "./myDp.jpg";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

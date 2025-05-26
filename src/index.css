@@ -9,11 +9,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #212534;
-  color:rgb(88,199,250)
+  /* background: #212534; */
+  /* color:rgb(88,199,250) */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
