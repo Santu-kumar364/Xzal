@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Xzal/static/css/main.fa7e4bae.css",
-    "main.js": "/Xzal/static/js/main.d5e3ff7b.js",
+    "main.js": "/Xzal/static/js/main.8cb6bca5.js",
     "static/js/453.d855a71b.chunk.js": "/Xzal/static/js/453.d855a71b.chunk.js",
     "index.html": "/Xzal/index.html",
     "main.fa7e4bae.css.map": "/Xzal/static/css/main.fa7e4bae.css.map",
-    "main.d5e3ff7b.js.map": "/Xzal/static/js/main.d5e3ff7b.js.map",
+    "main.8cb6bca5.js.map": "/Xzal/static/js/main.8cb6bca5.js.map",
     "453.d855a71b.chunk.js.map": "/Xzal/static/js/453.d855a71b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fa7e4bae.css",
-    "static/js/main.d5e3ff7b.js"
+    "static/js/main.8cb6bca5.js"
   ]
 }
