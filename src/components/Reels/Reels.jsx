@@ -1,7 +1,7 @@
  
 
 import React, { useEffect, useState, useRef } from 'react';
-import { Box, CircularProgress, Alert, useMediaQuery, Typography } from '@mui/material';
+import { Box, CircularProgress, Alert, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllReelsAction } from '../../Redux/Reel/reel.action';
 import ReelCard from './ReelCard';

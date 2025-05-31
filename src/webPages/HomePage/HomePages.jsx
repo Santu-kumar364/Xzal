@@ -6,16 +6,15 @@ import CreateReelsForm from "../../components/Reels/CreateReelsForm";
 import MyProfile from "../MyProfile/MyProfile";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import HomeRight from "../../components/HomeRight/HomeRight";
-import { useDispatch, useSelector } from "react-redux";
+ 
 import Message from "../Message/Message";
 import { Games } from "@mui/icons-material";
 
 const HomePages = () => {
-  const dispatch = useDispatch();
+   
   const location = useLocation();
-  const jwt = localStorage.getItem("jwt");
-  const {auth} = useSelector(store => store);
-
+   
+ 
  
 
   return (

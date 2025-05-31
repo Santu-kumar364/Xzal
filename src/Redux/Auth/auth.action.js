@@ -17,9 +17,7 @@ import {
   USER_UPDATE_PROFILE_PICTURE_REQUEST,
   USER_UPDATE_PROFILE_PICTURE_SUCCESS,
   USER_UPDATE_PROFILE_PICTURE_FAIL,
-  SEARCH_USER_SUCCUSS,
-  SEARCH_USER_REQUEST,
-  SEARCH_USER_FAILURE,
+   
 } from "./auth.action.Type";
 import axios from "axios";
 import { api, API_BASE_URL } from "../../config/Api";
@@ -48,7 +46,6 @@ export const loginUserAction = (loginData) => async (dispatch) => {
   }
 };
 
- 
 export const registerUserAction = (registerData) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_REQUEST });
@@ -76,19 +73,17 @@ export const getProfileAction = (jwt) => async (dispatch) => {
     dispatch({ type: GET_PROFILE_REQUEST });
     const { data } = await axios.get(`${API_BASE_URL}api/users/profile`, {
       headers: {
-        Authorization: `Bearer ${jwt}`
-      }
+        Authorization: `Bearer ${jwt}`,
+      },
     });
 
     console.log("profile_ _ _ _ ", data);
     dispatch({ type: GET_PROFILE_SUCCESS, payload: data });
   } catch (error) {
     console.log("_ _ _ _ _ _", error);
-    dispatch({type: GET_PROFILE_FAILURE, payload: error});
+    dispatch({ type: GET_PROFILE_FAILURE, payload: error });
   }
 };
-
- 
 
 export const updateProfileAction = (reqData) => async (dispatch) => {
   try {
@@ -102,20 +97,17 @@ export const updateProfileAction = (reqData) => async (dispatch) => {
     return { success: false, error: errorMsg };
   }
 };
- 
-
- 
 
 export const updateProfilePicture = (imageUrl) => async (dispatch) => {
   try {
     dispatch({ type: USER_UPDATE_PROFILE_PICTURE_REQUEST });
-    
+
     const { data } = await axios.put(
       `${API_BASE_URL}api/users/profile/picture`,
       { imageUrl },
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         },
       }
     );
@@ -138,16 +130,16 @@ export const updateProfilePicture = (imageUrl) => async (dispatch) => {
 export const updateBackgroundPicture = (imageUrl) => async (dispatch) => {
   try {
     dispatch({ type: USER_UPDATE_BACKGROUND_PICTURE_REQUEST });
-    
+
     const { data } = await axios.put(
       `${API_BASE_URL}api/users/profile/background`,
       { imageUrl },
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        'Content-Type': 'application/json',
-      },
-    }
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+          "Content-Type": "application/json",
+        },
+      }
     );
 
     dispatch({
@@ -156,7 +148,10 @@ export const updateBackgroundPicture = (imageUrl) => async (dispatch) => {
     });
     return data; // Return the updated user data
   } catch (error) {
-    console.error("Background picture update error:", error.response?.data || error);
+    console.error(
+      "Background picture update error:",
+      error.response?.data || error
+    );
     dispatch({
       type: USER_UPDATE_BACKGROUND_PICTURE_FAIL,
       payload: error.response?.data?.message || error.message,
@@ -166,19 +161,3 @@ export const updateBackgroundPicture = (imageUrl) => async (dispatch) => {
 };
 
  
-
- 
-export const searchUser = (query) => async (dispatch) => {
-  try {
-    dispatch({ type: SEARCH_USER_REQUEST });
-    const { data } = await api.get(`api/users/search?query=${query}`);
-    dispatch({ type: SEARCH_USER_SUCCUSS, payload: data });
-  } catch (error) {
-    const errorMessage = error.response?.data?.message || error.message;
-    console.log("Search error:", errorMessage);
-    dispatch({
-      type: SEARCH_USER_FAILURE, 
-      payload: errorMessage // Store only the error message string
-    });
-  }
-};
