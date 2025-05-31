@@ -45,4 +45,58 @@ The backend follows a **RESTful API** architecture, ensuring secure and scalable
 
  
  
+
+# Xcal (Real) - Social Media Platform 🌟
+
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/Frontend-React-blue)](https://reactjs.org/)
+[![Spring Boot](https://img.shields.io/badge/Backend-Spring%20Boot-brightgreen)](https://spring.io/projects/spring-boot)
+
+Where Connections Flourish and Stories Unfold ✨
+
+![App Screenshot](https://via.placeholder.com/800x400?text=Xcal+Social+Media+Screenshots)
+
+## Features 🚀
+
+- User authentication (Login/Register)
+- Profile customization
+- Post creation (Images/Videos/Articles)
+- Reels feature
+- Notifications system
+- Messaging functionality
+- Community engagement
+- Games integration
+
+## Screenshots 📱
+
+| Login Screen | Profile Page | Feed |
+|--------------|--------------|------|
+| ![Login](screenshots/login.png) | ![Profile](screenshots/profile.png) | ![Feed](screenshots/feed.png) |
+
+## Tech Stack 💻
+
+**Frontend:**
+- React.js
+- Redux (State Management)
+- TailwindCSS/Styled Components
+- Axios for API calls
+
+**Backend:**
+- Spring Boot
+- Spring Security (JWT Authentication)
+- MySQL/PostgreSQL
+- AWS S3 (Media Storage)
+
+## Getting Started 🏁
+
+### Prerequisites
+- Node.js (v16+)
+- Java JDK (17+)
+- MySQL/PostgreSQL
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/xcal-social-media.git
  
