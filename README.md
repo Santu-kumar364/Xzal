@@ -59,3 +59,25 @@ The backend follows a **RESTful API** architecture, ensuring secure and scalable
  ![Screenshot 2025-05-31 183558](https://github.com/user-attachments/assets/b2f77d3d-b40c-40bf-94e2-783715389cdc)
  
 ![Screenshot 2025-05-31 183612](https://github.com/user-attachments/assets/d9822869-7847-41cc-b047-3d74961d4f05)
+
+
+
+
+
+
+## 🔧 Technologies Used
+
+| Layer        | Technologies                                                                 |
+|--------------|------------------------------------------------------------------------------|
+| **Frontend** | React, Redux, TailwindCSS, Axios, Cloudinary SDK                            |
+| **Backend**  | Spring Boot, Spring Security, JPA/Hibernate, MySQL, JWT                     |
+| **DevOps**   | Git, Maven, Cloudinary (Media CDN)                                          |
+
+## 🛠️ Setup Guide
+
+### Backend
+1. Configure `application.properties`:
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/xzal
+cloudinary.cloud-name=your_cloud_name
+cloudinary.api-key=your_key
