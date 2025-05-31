@@ -44,59 +44,17 @@ The backend follows a **RESTful API** architecture, ensuring secure and scalable
 ✔️ Scalable and modular code structure  
 
  
+
+## Screenshots 
+
+![Screenshot 2025-05-31 182759](https://github.com/user-attachments/assets/171bc7fc-4543-4793-bc3c-2d7a8136af2f)
+
+![Screenshot 2025-05-31 182818](https://github.com/user-attachments/assets/3003d2fa-4f4d-487e-9c3d-c02fa1eb5322)
+
+![Screenshot 2025-05-31 183056](https://github.com/user-attachments/assets/4fbbb49e-56b3-4d6e-a126-842bc13a9bec)
+
+![Screenshot 2025-05-31 183517](https://github.com/user-attachments/assets/8a5ff6e0-a91b-489e-9062-7489284cc7e7)
+
+ ![Screenshot 2025-05-31 183558](https://github.com/user-attachments/assets/b2f77d3d-b40c-40bf-94e2-783715389cdc)
  
-
-# Xcal (Real) - Social Media Platform 🌟
-
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![React](https://img.shields.io/badge/Frontend-React-blue)](https://reactjs.org/)
-[![Spring Boot](https://img.shields.io/badge/Backend-Spring%20Boot-brightgreen)](https://spring.io/projects/spring-boot)
-
-Where Connections Flourish and Stories Unfold ✨
-
-![App Screenshot](https://via.placeholder.com/800x400?text=Xcal+Social+Media+Screenshots)
-
-## Features 🚀
-
-- User authentication (Login/Register)
-- Profile customization
-- Post creation (Images/Videos/Articles)
-- Reels feature
-- Notifications system
-- Messaging functionality
-- Community engagement
-- Games integration
-
-## Screenshots 📱
-
-| Login Screen | Profile Page | Feed |
-|--------------|--------------|------|
-| ![Login](screenshots/login.png) | ![Profile](screenshots/profile.png) | ![Feed](screenshots/feed.png) |
-
-## Tech Stack 💻
-
-**Frontend:**
-- React.js
-- Redux (State Management)
-- TailwindCSS/Styled Components
-- Axios for API calls
-
-**Backend:**
-- Spring Boot
-- Spring Security (JWT Authentication)
-- MySQL/PostgreSQL
-- AWS S3 (Media Storage)
-
-## Getting Started 🏁
-
-### Prerequisites
-- Node.js (v16+)
-- Java JDK (17+)
-- MySQL/PostgreSQL
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/xcal-social-media.git
- 
+![Screenshot 2025-05-31 183612](https://github.com/user-attachments/assets/d9822869-7847-41cc-b047-3d74961d4f05)
