@@ -1,4 +1,4 @@
-# **Xzal**  ![innerLogo](https://github.com/user-attachments/assets/10f38039-a3b1-46ff-b841-8059b1642e2b)
+# **Xzal**  ![Xcal Logo](https://github.com/user-attachments/assets/10f38039-a3b1-46ff-b841-8059b1642e2b =35x35)
 
 
 Xzal is a **full-stack social media application** built for seamless user interaction, efficient data management, and high performance. It features a **React.js frontend** and a **Spring Boot backend**, following a **RESTful API architecture** for smooth communication.  
