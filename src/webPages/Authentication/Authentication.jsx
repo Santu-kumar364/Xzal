@@ -3,6 +3,7 @@ import React from "react";
 import Login from "./Login";
 import Register from "./Register";
 import { Route, Routes } from "react-router-dom";
+import innerLogo from './innerLogo.png';
 
 const Authentication = () => {
   return (
@@ -68,7 +69,7 @@ const Authentication = () => {
           }}
         >
           <img
-            src="/innerLogo.png"
+            src={innerLogo}
             alt="Xcal Logo"
             style={{
               width: "150px",
