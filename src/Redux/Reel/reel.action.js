@@ -2,8 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '../../config/Api';
 
  
-import axios from "axios";
-
+ 
 export const createReelAction = createAsyncThunk(
   "reel/create",
   async (payload, { rejectWithValue }) => {

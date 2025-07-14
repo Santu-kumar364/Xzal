@@ -20,7 +20,6 @@ import ShareIcon from "@mui/icons-material/Share";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import { use } from "react";
 import {
   createCommentAction,
   likePostAction,
@@ -36,7 +35,7 @@ const PostCard = ({ item }) => {
   const [displayComments, setDisplayComments] = useState(false);
 
   const dispatch = useDispatch();
-  const { post, auth } = useSelector((store) => store);
+  const { auth } = useSelector((store) => store);
 
   const handleMenuClose = () => {
     setAnchorEl(null);
