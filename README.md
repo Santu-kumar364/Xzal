@@ -1,6 +1,5 @@
 # **Xzal**  
 
-
 Xzal is a **full-stack social media application** built for seamless user interaction, efficient data management, and high performance. It features a **React.js frontend** and a **Spring Boot backend**, following a **RESTful API architecture** for smooth communication.  
 
 ---
