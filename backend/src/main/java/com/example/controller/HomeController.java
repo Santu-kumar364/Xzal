@@ -13,7 +13,7 @@ public class HomeController {
 	
 	@GetMapping("/home")
 	public String homeControllerHandler2() {
-		return "Praanzal, this is home controller ";
+		return "Santu, this is home controller ";
 	}
 	
 
